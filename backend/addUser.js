@@ -21,10 +21,10 @@ const connectDB = async () => {
 const addUser = async () => {
     try {
         // User details
-        const name = 'Ronnie';
-        const email = 'ronnie@example.com';
-        const password = 'Theeron13!';
-        const role = 'admin'; // Change to 'teacher' or 'student' as needed
+        const name = 'Luna';
+        const email = 'luna@example.com';
+        const password = 'Luna13!';
+        const role = 'student'; // Change to 'teacher' or 'student' as needed
 
         // Hash password
         const hashedPassword = await bcrypt.hash(password, 10);

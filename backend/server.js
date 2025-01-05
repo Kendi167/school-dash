@@ -4,6 +4,7 @@ const cors = require('cors');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/auth');
 
+
 dotenv.config();
 connectDB();
 
@@ -16,7 +17,13 @@ app.use('/api/auth', authRoutes);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-app.use((req, res, next) => {
-    console.log(`Request received: ${req.method} ${req.url}`);
-    next();
-});
+const adminRoutes = require('./routes/admin');
+app.use('/api/admin', adminRoutes);
+
+const taskRoutes = require('./routes/task');
+const announcementRoutes = require('./routes/announcement');
+
+app.use('/api/tasks', taskRoutes);
+app.use('/api/announcements', announcementRoutes);
+
+
